@@ -13,18 +13,24 @@
 
 
         $password = md5($password);
-
+        include "select_user.php";
+        if($login == $row['USER_LOGIN']){
+            $_SESSION['message'] = 'Пользователь существует!';
+            header('Location: ../register.php'); 
+        }
+        else{
         $s = OCIParse($c, "INSERT INTO USERS (USER_ID, USER_NAME, USER_LOGIN, EMAIL, PASSWORD) VALUES (NULL, '$full_name', '$login', '$email', '$password')");
         OCIExecute($s, OCI_DEFAULT);
 
         $_SESSION['message'] = 'Регистрация прошла успешно!';
         header('Location: ../index.php');
-
-
-    } else {
+        } 
+    }
+        else {
         $_SESSION['message'] = 'Пароль введен некорркетно';
         header('Location: ../register.php');
-    }
+        }
+    
     OCICommit($c);
     // Отключаемся от бд
     OCILogoff($c);

@@ -9,7 +9,7 @@ if (!$_SESSION['user']) {
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Авторизация и регистрация</title>
+    <title>Profile</title>
     <link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
@@ -17,10 +17,10 @@ if (!$_SESSION['user']) {
     <!-- Профиль -->
 
     <form>
-        <h2 style="margin: 10px 0;"><?= $_SESSION['user']['full_name'] ?></h2>
-        <a href="#"><?= $_SESSION['user']['email'] ?></a>
-        <a href="vendor/logout.php" class="logout">Выход</a>
+        <p>ФИО: <?php echo $_SESSION['user']['full-name'];?>
+        <p>ID: <?php echo $_SESSION['user']['id'];?>
+        <p>EMAIL: <?php echo $_SESSION['user']['email'];?>
+        <p><a href="vendor/logout.php" class="logout">Выход</a>
     </form>
-
 </body>
 </html>

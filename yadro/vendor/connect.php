@@ -1,5 +1,5 @@
 <?php
-if ($c = OCILogon("FILIPP", "1234", "localhost/XE")) {
+if ($c = OCILogon("ILYA", "1234", "localhost/XE")) {
     echo "Successfully connected to Oracle.\n";
 } else {
     $err = OCIError();
